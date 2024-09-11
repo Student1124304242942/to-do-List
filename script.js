@@ -1,5 +1,7 @@
 const inputBox = document.getElementById('input-box');
 const listContainer = document.getElementById('list-container');
+ 
+inputBox.addEventListener('keydown', addTaskEnter);
 
 function addTask(){
     if(inputBox.value === ''){
@@ -17,7 +19,14 @@ function addTask(){
     saveData();
 }
 
-listContainer.addEventListener('click',function(e){
+function addTaskEnter(e){
+    if(e.key === 'Enter'){
+        e.preventDefault(); // Отменяем стандартное поведение Enter
+        addTask(); // Вызываем функцию добавления задачи при нажатии Enter
+    }
+}
+
+listContainer.addEventListener('click', function(e){
     if(e.target.tagName === 'LI'){
         e.target.classList.toggle('checked');
         saveData();
@@ -25,7 +34,7 @@ listContainer.addEventListener('click',function(e){
         e.target.parentElement.remove();
         saveData();
     } 
-},false)
+}, false);
 
 function saveData(){
     localStorage.setItem('data', listContainer.innerHTML);  

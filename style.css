@@ -48,6 +48,7 @@ input {
     background: transparent;
     outline: none;
     border: none;
+    font-size: 18px;
 } 
 
 button {
@@ -63,18 +64,14 @@ button {
 
 ul li {
     list-style: none;
-    font-size: 17px;
+    font-size: 20px;
     padding: 12px 8px 12px 50px;
     user-select: none;
     position: relative;
+    display: flex;
+    align-items: center;
 }
 
-a {
-    text-decoration: none;
-    position: absolute;
-    bottom: 0;
-    color: #000;
-}
 
 ul li::before {
     content: '';
@@ -92,7 +89,7 @@ ul li::before {
 
 .checked{
     color: #555;
-    text-decoration: line-through;
+    text-decoration: line-through
 }
 
 .checked::before {
@@ -116,4 +113,32 @@ ul li span {
 
 ul li span:hover {
     background: #edeef0;
+}
+
+@media(max-width:500px){
+    button {
+        padding: 10px 25px;
+        font-size: 14px;
+        border-radius: 20px;
+    }  
+    
+    input {
+        font-size: 16px;
+    }
+    
+    .checked::before {
+        height: 24px;
+        width: 24px;
+        background-image: url(checked.svg);
+    }
+
+    ul li {
+        font-size: 18px;
+    }
+    
+    ul li::before {
+        height: 24px;
+        width: 24px;
+    }
+    
 }
