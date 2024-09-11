@@ -98,7 +98,7 @@ ul li::before {
 .checked::before {
     height: 28px;
     width: 28px;
-    background-image: url(checked.png);
+    background-image: url(checked.svg);
 }
 
 ul li span {
